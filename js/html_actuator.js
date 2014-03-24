@@ -62,7 +62,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+  inner.textContent = this.gimatria(tile.value);
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
@@ -88,6 +88,45 @@ HTMLActuator.prototype.addTile = function (tile) {
 
   // Put the tile on the board
   this.tileContainer.appendChild(wrapper);
+};
+
+HTMLActuator.prototype.gimatria = function (value) {
+  switch(value) {
+    case 2:
+      return "ב";
+      break;
+    case 4:
+      return "ד";
+      break;
+    case 8:
+      return "ח";
+      break;
+    case 16:
+      return "ט\"ז";
+      break;
+    case 32:
+      return "ל\"ב";
+      break;
+    case 64:
+      return "ס\"ד";
+      break;
+    case 128:
+      return "קי\"ח";
+      break;
+    case 256:
+      return "רנ\"ו";
+      break;
+    case 512:
+      return "תקי\"ב";
+      break;
+    case 1024:
+      return "א' כ\"ד";
+      break;     
+    case 2048:
+      return "ב' מ\"ח";
+      break;      
+  }
+  return "";
 };
 
 HTMLActuator.prototype.applyClasses = function (element, classes) {
